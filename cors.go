@@ -14,7 +14,7 @@ const NAME = "CORS"
 
 func Handle(route *router.Route, req *http.Request) (*HandlerError){
 	fmt.Println(req.Method)
-	if req.Method == "OPTIONS" {
+	if req.Method == http.MethodOptions {
 		req.Write(bytes.NewBufferString("OK"))
 		return NewHttpError(http.StatusOK, "OK")
 	}
